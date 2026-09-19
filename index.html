@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Witness Studios — Film Production, Event Coverage &amp; Equipment Rental</title>
+<meta name="description" content="Witness Studios shoots film, weddings, church programs and brand work in Lagos — and rents the cinema kit we trust.">
+<meta name="theme-color" content="#120A1C">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Witness Studios — brand tokens */
+:root {
+  --purple-deep: #4D2979;
+  --purple-bright: #B845F6;
+  --purple-link: #C77BFF;
+  --orange: #FF4521;
+  --charcoal: #333333;
+  --offwhite: #FAF7FF;
+
+  --ink-bg: #120A1C;
+  --ink-raised: #1A0F2B;
+  --ink-deep: #150C22;
+  --ink-mid: #24123A;
+
+  --text-dim: rgba(250, 247, 255, 0.68);
+  --text-soft: rgba(250, 247, 255, 0.82);
+  --text-mid: rgba(250, 247, 255, 0.85);
+  --hairline: rgba(250, 247, 255, 0.15);
+  --hairline-soft: rgba(250, 247, 255, 0.13);
+  --purple-line: rgba(184, 69, 246, 0.26);
+
+  --radius: 3px;
+  --gradient-brand: linear-gradient(95deg, var(--purple-deep), var(--purple-bright) 52%, var(--orange));
+  --gradient-band: linear-gradient(100deg, var(--purple-deep) 0%, var(--purple-bright) 55%, var(--orange) 100%);
+
+  --font-display: 'Clash Display', 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Metropolis', system-ui, sans-serif;
+
+  --container: 1360px;
+  --pad-inline: clamp(20px, 4vw, 64px);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink-bg);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--offwhite);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, video { max-width: 100%; display: block; }
+
+a {
+  color: var(--purple-link);
+  text-decoration: none;
+}
+a:hover { color: var(--orange); }
+
+::selection { background: var(--purple-bright); color: var(--offwhite); }
+
+button, input, textarea { font-family: inherit; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--pad-inline);
+  padding-right: var(--pad-inline);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px; top: -60px;
+  background: var(--offwhite);
+  color: var(--ink-bg);
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 200;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--purple-bright);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+input:focus-visible, textarea:focus-visible { outline: none; }
+
+@keyframes wsFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(52% 40% at 8% 14%, rgba(77, 41, 121, 0.55) 0%, rgba(77, 41, 121, 0) 68%),
+    radial-gradient(46% 38% at 92% 46%, rgba(184, 69, 246, 0.32) 0%, rgba(184, 69, 246, 0) 70%),
+    radial-gradient(44% 34% at 26% 88%, rgba(255, 69, 33, 0.22) 0%, rgba(255, 69, 33, 0) 72%);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(18, 10, 28, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 72px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.brand img { height: 30px; width: auto; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--offwhite);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 34px);
+}
+
+.nav-link {
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--text-dim);
+}
+.nav-link:hover { color: var(--orange); }
+.nav-link.is-active {
+  color: var(--offwhite);
+  border-bottom-color: var(--purple-bright);
+}
+
+.btn-gradient {
+  display: inline-block;
+  padding: 16px 30px;
+  border-radius: var(--radius);
+  background: var(--gradient-brand);
+  color: var(--offwhite);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+.btn-gradient:hover { filter: brightness(1.14); color: var(--offwhite); }
+
+.nav-cta {
+  margin-left: 6px;
+  padding: 11px 20px;
+  font-size: 13px;
+}
+
+.btn-light {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  background: var(--offwhite);
+  color: var(--purple-deep);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+}
+.btn-light:hover { color: var(--orange); }
+
+.link-arrow {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--offwhite);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(250, 247, 255, 0.55);
+  padding-bottom: 3px;
+  background: none;
+  border-top: none; border-left: none; border-right: none;
+}
+.link-arrow:hover { color: var(--orange); border-bottom-color: var(--orange); }
+
+.link-arrow--sub {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--purple-link);
+  border-bottom: 1px solid rgba(199, 123, 255, 0.5);
+  padding-bottom: 2px;
+}
+.link-arrow--sub:hover { color: var(--orange); border-bottom-color: var(--orange); }
+
+@media (max-width: 880px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--ink-bg);
+    border-bottom: 1px solid var(--hairline);
+    box-shadow: 0 24px 32px -16px rgba(0, 0, 0, 0.55);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px var(--pad-inline) 20px;
+    display: none;
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-link {
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .nav-link.is-active { border-bottom-color: var(--hairline-soft); }
+  .nav-cta {
+    margin-left: 0;
+    margin-top: 16px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  animation: wsFade 0.45s ease both;
+}
+.page[hidden] { display: none; }
+
+.page-head {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 110px) var(--pad-inline) 0;
+}
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  margin: 0;
+  color: var(--offwhite);
+}
+.page-lede {
+  margin: 22px 0 0;
+  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+.hero {
+  position: relative;
+  min-height: min(86vh, 760px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 18% 10%, var(--purple-deep) 0%, var(--ink-mid) 45%, var(--ink-deep) 100%);
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 10, 28, 0.5) 0%, rgba(18, 10, 28, 0.3) 38%, rgba(18, 10, 28, 0.92) 88%, var(--ink-bg) 100%);
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0px, rgba(255, 255, 255, 0.35) 1px, transparent 1px, transparent 3px);
+}
+
+/* Reserved spot for the real showreel: swap this block for a <video>
+   with autoplay muted loop playsinline + poster once footage is supplied.
+   Kept as a corner label (not centered) so it never collides with the
+   headline, at any viewport width or copy length. */
+.hero-video-slot {
+  position: absolute;
+  top: clamp(24px, 5vh, 40px);
+  right: var(--pad-inline);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-video-slot .play-badge {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 247, 255, 0.45);
+  display: grid;
+  place-items: center;
+  background: rgba(250, 247, 255, 0.04);
+  flex-shrink: 0;
+}
+.hero-video-slot .play-badge .tri {
+  width: 0; height: 0;
+  border-left: 8px solid rgba(250, 247, 255, 0.75);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  margin-left: 2px;
+}
+.hero-video-slot .slot-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 255, 0.6);
+  text-align: right;
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(80px, 12vh, 140px) var(--pad-inline) clamp(48px, 7vh, 76px);
+}
+
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 255, 0.86);
+  margin-bottom: 26px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(46px, 8.4vw, 124px);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  margin: 0;
+  text-wrap: balance;
+}
+.hero-title span { display: block; }
+.hero-title .line-1 { color: var(--offwhite); }
+.hero-title .line-2 {
+  background: linear-gradient(92deg, var(--purple-bright) 8%, var(--orange) 72%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--orange);
+}
+
+.hero-quote {
+  max-width: 560px;
+  margin: 30px 0 0;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.65;
+  color: rgba(250, 247, 255, 0.82);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.section { max-width: var(--container); margin: 0 auto; padding: clamp(72px, 10vw, 128px) var(--pad-inline) 0; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(30px, 4vw, 54px);
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: var(--offwhite);
+}
+
+.reel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(20px, 3vw, 38px);
+  margin-top: clamp(32px, 4vw, 56px);
+}
+
+.reel-card { cursor: pointer; background: none; border: none; text-align: left; padding: 0; color: inherit; }
+
+.media-block {
+  position: relative;
+  border-radius: var(--radius);
+  border: 1px solid var(--purple-line);
+  display: grid;
+  place-items: center;
+}
+
+.reel-card .media-block { aspect-ratio: 4 / 5; }
+
+.play-circle {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 247, 255, 0.45);
+  display: grid;
+  place-items: center;
+}
+.play-circle .tri {
+  width: 0; height: 0;
+  border-left: 13px solid rgba(250, 247, 255, 0.8);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  margin-left: 4px;
+}
+
+.media-tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 255, 0.8);
+}
+
+.reel-card-title {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--offwhite);
+}
+.reel-card-meta {
+  margin-top: 5px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.wwd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(28px, 5vw, 80px);
+  align-items: start;
+}
+.wwd-copy p {
+  margin: 20px 0 0;
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-mid);
+}
+.wwd-row {
+  display: flex;
+  gap: clamp(18px, 3vw, 40px);
+  align-items: baseline;
+  padding: 26px 0;
+  border-top: 1px solid var(--hairline);
+}
+.wwd-list > .wwd-row:last-child { border-bottom: 1px solid var(--hairline); }
+.wwd-num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--purple-bright);
+  letter-spacing: 0.1em;
+}
+.wwd-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 32px);
+  letter-spacing: -0.02em;
+  color: var(--offwhite);
+}
+.wwd-desc {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-mid);
+  max-width: 520px;
+}
+
+.testi-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(32px, 5vw, 72px);
+}
+.testi-quote {
+  margin: 0;
+  padding-right: clamp(0px, 3vw, 40px);
+}
+.testi-quote + .testi-quote {
+  padding-left: clamp(0px, 3vw, 40px);
+  padding-right: 0;
+  border-left: 1px solid var(--hairline);
+}
+.testi-quote p {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.28;
+  letter-spacing: -0.025em;
+  color: var(--offwhite);
+  margin: 0;
+  text-wrap: pretty;
+}
+.testi-quote footer {
+  margin-top: 20px;
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.cta-band { background: var(--gradient-band); color: var(--offwhite); }
+.cta-band-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(60px, 9vw, 110px) var(--pad-inline);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  align-items: center;
+  justify-content: space-between;
+}
+.cta-band-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 66px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: 0;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+.cta-band-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+.cta-band-actions .link-arrow {
+  color: var(--offwhite);
+  border-bottom-color: rgba(250, 247, 255, 0.6);
+}
+.cta-band-actions .link-arrow:hover { border-bottom-color: var(--offwhite); color: var(--offwhite); }
+.cta-band-note { font-size: 15px; color: rgba(250, 247, 255, 0.9); }
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 3vw, 34px);
+  margin-top: clamp(36px, 5vw, 60px);
+  border-bottom: 1px solid var(--hairline);
+}
+.filter-btn {
+  padding: 0 0 14px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  margin-bottom: -1px;
+  color: var(--text-dim);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+}
+.filter-btn:hover { color: var(--orange); }
+.filter-btn.is-active { color: var(--offwhite); border-bottom-color: var(--orange); }
+.filter-count { margin-left: auto; padding-bottom: 14px; font-size: 13px; color: var(--text-dim); }
+
+.masonry {
+  columns: 3 300px;
+  column-gap: clamp(20px, 3vw, 38px);
+  margin-top: clamp(32px, 4vw, 52px);
+}
+.project-card { break-inside: avoid; margin-bottom: clamp(28px, 4vw, 48px); }
+.project-card .media-block { display: grid; }
+.project-card-title {
+  margin-top: 13px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.015em;
+  color: var(--offwhite);
+}
+.project-card-meta { margin-top: 5px; font-size: 13px; line-height: 1.5; color: var(--text-dim); }
+
+.zigzag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  padding: clamp(48px, 7vw, 88px) 0;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.zigzag-row.is-reversed { flex-direction: row-reverse; }
+.zigzag-media, .zigzag-copy { flex: 1 1 300px; min-width: 0; }
+.zigzag-copy { flex-basis: 320px; }
+.placeholder-block {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1px solid var(--purple-line);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.placeholder-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 255, 0.8);
+}
+.zigzag-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--purple-bright);
+}
+.zigzag-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(26px, 3.4vw, 44px);
+  letter-spacing: -0.03em;
+  margin: 10px 0 0;
+  color: var(--offwhite);
+}
+.zigzag-copy p {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-mid);
+  max-width: 46ch;
+}
+.zigzag-copy .link-arrow--sub { display: inline-block; margin-top: 18px; }
+
+.rentals-feature {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 5vw, 72px);
+  align-items: flex-end;
+  margin-top: clamp(36px, 5vw, 60px);
+}
+.rentals-feature-media, .rentals-feature-copy { flex: 1 1 320px; min-width: 0; }
+.rentals-feature-media { flex-basis: 340px; }
+.rentals-feature-media .placeholder-block { aspect-ratio: 16 / 10; }
+.rentals-feature-copy .lede {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--offwhite);
+}
+.rentals-feature-copy p.body {
+  margin: 18px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-mid);
+}
+
+.gear-list-head {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hairline);
+}
+.gear-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(22px, 3vw, 32px) 0;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.gear-row-main {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  gap: clamp(16px, 3vw, 36px);
+  align-items: baseline;
+}
+.gear-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--purple-bright);
+}
+.gear-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(20px, 2.3vw, 28px);
+  letter-spacing: -0.02em;
+  color: var(--offwhite);
+}
+.gear-desc { margin-top: 6px; font-size: 14.5px; line-height: 1.6; color: var(--text-mid); max-width: 58ch; }
+.gear-quote-btn {
+  flex-shrink: 0;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  background: var(--offwhite);
+  color: var(--ink-deep);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+}
+.gear-quote-btn:hover { background: var(--purple-link); }
+
+.contact-grid { display: flex; flex-wrap: wrap; gap: clamp(40px, 6vw, 96px); }
+.contact-info, .contact-form-col { flex: 1 1 320px; min-width: 0; }
+.contact-form-col { flex-basis: 340px; }
+
+.contact-info-list { margin-top: clamp(36px, 5vw, 56px); }
+.contact-info-item {
+  padding: 20px 0;
+  border-top: 1px solid var(--hairline);
+}
+.contact-info-list .contact-info-item:last-child { border-bottom: 1px solid var(--hairline); }
+.contact-info-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.contact-info-value {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: -0.02em;
+  color: var(--offwhite);
+  border-bottom: 1px solid rgba(250, 247, 255, 0.28);
+}
+a.contact-info-value:hover { color: var(--orange); border-bottom-color: var(--orange); }
+.contact-info-static {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: -0.02em;
+  color: var(--offwhite);
+}
+
+.form-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.contact-form { margin-top: clamp(28px, 4vw, 44px); }
+.field { margin-bottom: 34px; }
+.field label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.field input, .field textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(250, 247, 255, 0.3);
+  background: transparent;
+  padding: 8px 0 12px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--offwhite);
+  outline: none;
+  resize: vertical;
+}
+.field input::placeholder, .field textarea::placeholder { color: rgba(250, 247, 255, 0.35); }
+.field input:focus, .field textarea:focus { border-bottom-color: var(--purple-bright); }
+
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+.form-send {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+.form-send:disabled { opacity: 0.6; cursor: default; }
+.form-note { font-size: 14px; color: var(--purple-link); min-height: 1.4em; }
+.form-note.is-error { color: var(--orange); }
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--hairline-soft);
+  background: rgba(18, 10, 28, 0.7);
+}
+.footer-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 40px var(--pad-inline);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-brand { display: flex; align-items: center; gap: 16px; }
+.footer-brand img { height: 26px; width: auto; opacity: 0.7; }
+.footer-loc {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.footer-copy { font-size: 13px; color: var(--text-dim); }
+
+@media (max-width: 620px) {
+  .masonry { columns: 1 300px; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <button class="brand" type="button" data-goto="home" aria-label="Witness Studios — go to home">
+      <img src="assets/witness-logo-white.png" alt="Witness Studios" width="1037" height="300">
+    </button>
+
+    <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <button class="nav-link" type="button" data-nav="home">Home</button>
+      <button class="nav-link" type="button" data-nav="projects">Projects</button>
+      <button class="nav-link" type="button" data-nav="services">Services</button>
+      <button class="nav-link" type="button" data-nav="rentals">Rentals</button>
+      <button class="btn-gradient nav-cta" type="button" data-nav="contact">Contact Us</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HOME ============ -->
+  <section class="page" id="page-home" data-page="home">
+
+    <section class="hero">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <!--
+        Reserved for the real showreel. Replace .hero-video-slot with:
+        <video autoplay muted loop playsinline preload="metadata"
+               poster="assets/hero-poster.jpg" src="assets/witness-reel.mp4"></video>
+        placed as the first child of .hero, before .hero-grain.
+      -->
+      <div class="hero-video-slot" aria-hidden="true">
+        <span class="play-badge"><span class="tri"></span></span>
+        <span class="slot-label">Showreel — footage to supply</span>
+      </div>
+      <div class="hero-scrim"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Film production · Event coverage · Equipment rental</p>
+        <h1 class="hero-title">
+          <span class="line-1">Capturing Moments</span>
+          <span class="line-2">With Precision</span>
+        </h1>
+        <p class="hero-quote">“The camera doesn't lie — it just needs someone patient enough to wait for the truth.” We shoot film, weddings, church programs and brand work, and we rent the kit we trust.</p>
+        <div class="hero-actions">
+          <button class="btn-gradient" type="button" data-goto="projects">View our work</button>
+          <button class="link-arrow" type="button" data-goto="rentals">Rent equipment →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">Selected work</h2>
+        <button class="link-arrow--sub" type="button" data-goto="projects">All projects →</button>
+      </div>
+      <div class="reel-grid">
+        <button class="reel-card" type="button" data-goto="projects">
+          <span class="media-block" style="aspect-ratio:4/5; background:linear-gradient(150deg, rgba(184,69,246,0.18), rgba(184,69,246,0.14) 60%, rgba(255,69,33,0.16));">
+            <span class="play-circle"><span class="tri"></span></span>
+            <span class="media-tag">Film</span>
+          </span>
+          <span class="reel-card-title">Harvest — short film</span>
+          <span class="reel-card-meta">Direction · Cinematography · 2025</span>
+        </button>
+        <button class="reel-card" type="button" data-goto="projects">
+          <span class="media-block" style="aspect-ratio:4/5; background:linear-gradient(150deg, rgba(184,69,246,0.14), rgba(77,41,121,0.35));">
+            <span class="play-circle"><span class="tri"></span></span>
+            <span class="media-tag">Wedding</span>
+          </span>
+          <span class="reel-card-title">Ada &amp; Tobi</span>
+          <span class="reel-card-meta">Full-day coverage · Highlight reel</span>
+        </button>
+        <button class="reel-card" type="button" data-goto="projects">
+          <span class="media-block" style="aspect-ratio:4/5; background:linear-gradient(150deg, rgba(255,69,33,0.12), rgba(184,69,246,0.14));">
+            <span class="play-circle"><span class="tri"></span></span>
+            <span class="media-tag">Commercial</span>
+          </span>
+          <span class="reel-card-title">Lagos Coffee Co.</span>
+          <span class="reel-card-meta">Brand film · 60s &amp; cutdowns</span>
+        </button>
+        <button class="reel-card" type="button" data-goto="projects">
+          <span class="media-block" style="aspect-ratio:4/5; background:linear-gradient(150deg, rgba(184,69,246,0.26), rgba(255,69,33,0.16));">
+            <span class="play-circle"><span class="tri"></span></span>
+            <span class="media-tag">Church</span>
+          </span>
+          <span class="reel-card-title">Easter Convention</span>
+          <span class="reel-card-meta">4-camera live · Multi-day</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wwd-grid">
+        <div class="wwd-copy">
+          <h2 class="section-title">What we do</h2>
+          <p>Three disciplines, one crew. We keep the whole pipeline in-house so the look you agreed on in pre-production is the look that gets delivered.</p>
+        </div>
+        <div class="wwd-list">
+          <div class="wwd-row">
+            <div class="wwd-num">01</div>
+            <div>
+              <div class="wwd-name">Film production</div>
+              <p class="wwd-desc">Script to screen — narrative shorts, documentaries and brand films, with directing, crew and post under one roof.</p>
+            </div>
+          </div>
+          <div class="wwd-row">
+            <div class="wwd-num">02</div>
+            <div>
+              <div class="wwd-name">Event coverage</div>
+              <p class="wwd-desc">Weddings, church programs, conferences. Multi-camera teams that stay invisible and still catch the moment that matters.</p>
+            </div>
+          </div>
+          <div class="wwd-row">
+            <div class="wwd-num">03</div>
+            <div>
+              <div class="wwd-name">Equipment rental</div>
+              <p class="wwd-desc">Cinema bodies, glass, lighting, gimbals and drones — maintained, tested before pickup, available with or without an operator.</p>
+              <button class="link-arrow--sub" type="button" data-goto="rentals" style="display:inline-block; margin-top:14px;">See the gear list →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="testi-eyebrow">What clients say</p>
+      <div class="testi-grid">
+        <blockquote class="testi-quote">
+          <p>“They shot our wedding like it was a film, not a service. We've watched the reel forty times.”</p>
+          <footer>Ada &amp; Tobi — Wedding, 2025</footer>
+        </blockquote>
+        <blockquote class="testi-quote">
+          <p>“Four cameras, three days, zero drama. The livestream never dropped once.”</p>
+          <footer>Grace Assembly — Easter Convention</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="cta-band" style="margin-top: clamp(80px, 11vw, 140px);">
+      <div class="cta-band-inner">
+        <h2 class="cta-band-title">Got something worth filming?</h2>
+        <div class="cta-band-actions">
+          <button class="btn-light" type="button" data-goto="contact">Start a project</button>
+          <button class="link-arrow" type="button" data-goto="rentals">Or just rent the kit →</button>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="page" id="page-projects" data-page="projects" hidden>
+    <div class="page-head" style="padding-bottom: clamp(80px, 10vw, 130px);">
+      <h1 class="page-title">Projects</h1>
+      <p class="page-lede" style="max-width:540px;">Selected work from the last three years. Full reels and case notes available on request — some client work stays private.</p>
+
+      <div class="filters-row" id="filtersRow">
+        <button class="filter-btn is-active" type="button" data-filter="All">All</button>
+        <button class="filter-btn" type="button" data-filter="Weddings">Weddings</button>
+        <button class="filter-btn" type="button" data-filter="Church programs">Church programs</button>
+        <button class="filter-btn" type="button" data-filter="Commercial">Commercial</button>
+        <span class="filter-count" id="filterCount"></span>
+      </div>
+
+      <div class="masonry" id="projectsGrid">
+        <div class="project-card" data-cat="Commercial">
+          <div class="media-block" style="aspect-ratio:4/5; background:linear-gradient(150deg, rgba(184,69,246,0.2), rgba(184,69,246,0.12));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Film</span>
+          </div>
+          <div class="project-card-title">Harvest — short film</div>
+          <div class="project-card-meta">Direction · Cinematography · 2025</div>
+        </div>
+        <div class="project-card" data-cat="Weddings">
+          <div class="media-block" style="aspect-ratio:3/4; background:linear-gradient(150deg, rgba(184,69,246,0.14), rgba(77,41,121,0.32));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Weddings</span>
+          </div>
+          <div class="project-card-title">Ada &amp; Tobi</div>
+          <div class="project-card-meta">Full-day coverage · Highlight reel</div>
+        </div>
+        <div class="project-card" data-cat="Church programs">
+          <div class="media-block" style="aspect-ratio:16/9; background:linear-gradient(150deg, rgba(184,69,246,0.26), rgba(255,69,33,0.15));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Church programs</span>
+          </div>
+          <div class="project-card-title">Easter Convention</div>
+          <div class="project-card-meta">4-camera live · Multi-day · Grace Assembly</div>
+        </div>
+        <div class="project-card" data-cat="Commercial">
+          <div class="media-block" style="aspect-ratio:1/1; background:linear-gradient(150deg, rgba(255,69,33,0.2), rgba(184,69,246,0.1));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Commercial</span>
+          </div>
+          <div class="project-card-title">Lagos Coffee Co.</div>
+          <div class="project-card-meta">Brand film · 60s &amp; cutdowns</div>
+        </div>
+        <div class="project-card" data-cat="Weddings">
+          <div class="media-block" style="aspect-ratio:4/5; background:linear-gradient(150deg, rgba(184,69,246,0.12), rgba(255,69,33,0.16));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Weddings</span>
+          </div>
+          <div class="project-card-title">Ife &amp; Kelechi</div>
+          <div class="project-card-meta">Traditional &amp; white wedding · Two days</div>
+        </div>
+        <div class="project-card" data-cat="Church programs">
+          <div class="media-block" style="aspect-ratio:3/2; background:linear-gradient(150deg, rgba(184,69,246,0.16), rgba(184,69,246,0.11));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Church programs</span>
+          </div>
+          <div class="project-card-title">Youth Conference '25</div>
+          <div class="project-card-meta">Livestream · Recap film</div>
+        </div>
+        <div class="project-card" data-cat="Commercial">
+          <div class="media-block" style="aspect-ratio:4/3; background:linear-gradient(150deg, rgba(184,69,246,0.2), rgba(77,41,121,0.3));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Commercial</span>
+          </div>
+          <div class="project-card-title">Meridian Bank</div>
+          <div class="project-card-meta">Internal campaign · 4 films</div>
+        </div>
+        <div class="project-card" data-cat="Church programs">
+          <div class="media-block" style="aspect-ratio:1/1; background:linear-gradient(150deg, rgba(255,69,33,0.17), rgba(184,69,246,0.16));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Church programs</span>
+          </div>
+          <div class="project-card-title">Sunday Service Series</div>
+          <div class="project-card-meta">Weekly multi-cam · Ongoing</div>
+        </div>
+        <div class="project-card" data-cat="Weddings">
+          <div class="media-block" style="aspect-ratio:3/4; background:linear-gradient(150deg, rgba(184,69,246,0.15), rgba(250,247,255,0.12));">
+            <span class="play-circle" style="width:54px;height:54px;"><span class="tri" style="border-left-width:12px;border-top-width:7.5px;border-bottom-width:7.5px;"></span></span>
+            <span class="media-tag">Weddings</span>
+          </div>
+          <div class="project-card-title">Nneka &amp; David</div>
+          <div class="project-card-meta">Destination wedding · Film + stills</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="page" id="page-services" data-page="services" hidden>
+    <div class="page-head">
+      <h1 class="page-title">Services</h1>
+      <p class="page-lede">Hire the whole pipeline or the one piece you're missing. Day rates and packages on request.</p>
+    </div>
+
+    <div class="section" style="padding-top: clamp(48px, 7vw, 96px);">
+      <div class="zigzag-row">
+        <div class="zigzag-media">
+          <div class="placeholder-block" style="background:linear-gradient(140deg, rgba(184,69,246,0.2), rgba(184,69,246,0.12));">
+            <span class="placeholder-label">Process still — to supply</span>
+          </div>
+        </div>
+        <div class="zigzag-copy">
+          <div class="zigzag-num">01</div>
+          <h2 class="zigzag-title">Directing &amp; script writing</h2>
+          <p>Treatments, shot lists and scripts that survive contact with a real shoot day. We direct on set and defend the idea in the edit.</p>
+          <button class="link-arrow--sub" type="button" data-goto="contact">Discuss a project →</button>
+        </div>
+      </div>
+
+      <div class="zigzag-row is-reversed">
+        <div class="zigzag-media">
+          <div class="placeholder-block" style="background:linear-gradient(140deg, rgba(184,69,246,0.14), rgba(255,69,33,0.15));">
+            <span class="placeholder-label">Process still — to supply</span>
+          </div>
+        </div>
+        <div class="zigzag-copy">
+          <div class="zigzag-num">02</div>
+          <h2 class="zigzag-title">Cinematography</h2>
+          <p>Camera and lighting led by a DP who owns the kit. Cinema bodies, prime glass, and a lighting plan built for the room you're actually shooting in.</p>
+          <button class="link-arrow--sub" type="button" data-goto="contact">Check availability →</button>
+        </div>
+      </div>
+
+      <div class="zigzag-row">
+        <div class="zigzag-media">
+          <div class="placeholder-block" style="background:linear-gradient(140deg, rgba(184,69,246,0.26), rgba(255,69,33,0.15));">
+            <span class="placeholder-label">Process still — to supply</span>
+          </div>
+        </div>
+        <div class="zigzag-copy">
+          <div class="zigzag-num">03</div>
+          <h2 class="zigzag-title">Event coverage</h2>
+          <p>Weddings, church programs and conferences. Multi-camera crews, wireless audio, optional livestream, and a highlight cut inside two weeks.</p>
+          <button class="link-arrow--sub" type="button" data-goto="contact">Book a date →</button>
+        </div>
+      </div>
+
+      <div class="zigzag-row is-reversed">
+        <div class="zigzag-media">
+          <div class="placeholder-block" style="background:linear-gradient(140deg, rgba(184,69,246,0.12), rgba(77,41,121,0.35));">
+            <span class="placeholder-label">Process still — to supply</span>
+          </div>
+        </div>
+        <div class="zigzag-copy">
+          <div class="zigzag-num">04</div>
+          <h2 class="zigzag-title">Set design &amp; props</h2>
+          <p>Builds, dressing and sourcing for narrative and commercial work — from a single practical corner to a full studio set.</p>
+          <button class="link-arrow--sub" type="button" data-goto="contact">Talk through a build →</button>
+        </div>
+      </div>
+
+      <div class="zigzag-row" style="border-bottom:none; padding-bottom: clamp(72px, 10vw, 120px);">
+        <div class="zigzag-media">
+          <div class="placeholder-block" style="background:linear-gradient(140deg, rgba(255,69,33,0.10), rgba(184,69,246,0.12));">
+            <span class="placeholder-label">Process still — to supply</span>
+          </div>
+        </div>
+        <div class="zigzag-copy">
+          <div class="zigzag-num">05</div>
+          <h2 class="zigzag-title">Editing &amp; post-production</h2>
+          <p>Offline edit, colour, sound mix, titles and delivery in every aspect ratio the campaign needs. We also finish footage we didn't shoot.</p>
+          <button class="link-arrow--sub" type="button" data-goto="contact">Send us your footage →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RENTALS ============ -->
+  <section class="page" id="page-rentals" data-page="rentals" hidden>
+    <div class="page-head">
+      <h1 class="page-title">Rentals</h1>
+      <div class="rentals-feature">
+        <div class="rentals-feature-media">
+          <div class="placeholder-block" style="background:linear-gradient(135deg, rgba(184,69,246,0.26), rgba(184,69,246,0.14) 60%, rgba(255,69,33,0.15));">
+            <span class="placeholder-label">Equipment photo — to supply</span>
+          </div>
+        </div>
+        <div class="rentals-feature-copy">
+          <p class="lede">Our own working kit, rented out between shoots.</p>
+          <p class="body">Everything is tested and cleaned before pickup, insured, and available dry or with a Witness operator. Daily, weekend and weekly rates — pickup in the city or delivery to set.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="padding-bottom: clamp(72px, 10vw, 120px); padding-top: clamp(56px, 7vw, 96px);">
+      <div class="gear-list-head">Gear list</div>
+      <div id="gearList">
+        <div class="gear-row">
+          <div class="gear-row-main">
+            <div class="gear-num">01</div>
+            <div>
+              <div class="gear-name">Cinema cameras</div>
+              <div class="gear-desc">Super-35 and full-frame bodies with cages, matte boxes, media and batteries included.</div>
+            </div>
+          </div>
+          <button class="gear-quote-btn" type="button" data-gear="Cinema cameras">Request a quote</button>
+        </div>
+        <div class="gear-row">
+          <div class="gear-row-main">
+            <div class="gear-num">02</div>
+            <div>
+              <div class="gear-name">Lenses</div>
+              <div class="gear-desc">Cine prime sets and fast zooms in PL and EF mounts, with filters and follow-focus.</div>
+            </div>
+          </div>
+          <button class="gear-quote-btn" type="button" data-gear="Lenses">Request a quote</button>
+        </div>
+        <div class="gear-row">
+          <div class="gear-row-main">
+            <div class="gear-num">03</div>
+            <div>
+              <div class="gear-name">Lighting kits</div>
+              <div class="gear-desc">LED panels, fresnels and tube kits with stands, modifiers, gels and distro.</div>
+            </div>
+          </div>
+          <button class="gear-quote-btn" type="button" data-gear="Lighting kits">Request a quote</button>
+        </div>
+        <div class="gear-row">
+          <div class="gear-row-main">
+            <div class="gear-num">04</div>
+            <div>
+              <div class="gear-name">Gimbals &amp; stabilizers</div>
+              <div class="gear-desc">Three-axis gimbals, sliders and shoulder rigs — balanced and tested before pickup.</div>
+            </div>
+          </div>
+          <button class="gear-quote-btn" type="button" data-gear="Gimbals &amp; stabilizers">Request a quote</button>
+        </div>
+        <div class="gear-row">
+          <div class="gear-row-main">
+            <div class="gear-num">05</div>
+            <div>
+              <div class="gear-name">Drones</div>
+              <div class="gear-desc">Licensed aerial units with a certified pilot; permits handled on request.</div>
+            </div>
+          </div>
+          <button class="gear-quote-btn" type="button" data-gear="Drones">Request a quote</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="cta-band">
+      <div class="cta-band-inner">
+        <h2 class="cta-band-title">Need it for Friday?</h2>
+        <div class="cta-band-actions">
+          <button class="btn-light" type="button" data-goto="contact">Check availability</button>
+          <div class="cta-band-note">Or call <a href="tel:+2348010000000" style="color:inherit;">+234 801 000 0000</a> — we answer.</div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="page" id="page-contact" data-page="contact" hidden>
+    <div class="page-head" style="padding-bottom: clamp(80px, 10vw, 130px);">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h1 class="page-title" style="font-size: clamp(40px, 6.5vw, 86px);">Let's talk</h1>
+          <p class="page-lede" style="max-width:42ch;">Tell us the date, the place and what you want people to feel. We'll come back with a plan and a number.</p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-info-label">Phone</div>
+              <a class="contact-info-value" href="tel:+2348010000000">+234 801 000 0000</a>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-label">Email</div>
+              <a class="contact-info-value" href="mailto:hello@witnessstudios.com">hello@witnessstudios.com</a>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-label">Instagram</div>
+              <a class="contact-info-value" href="https://instagram.com/witnessstudios" target="_blank" rel="noopener">@witnessstudios</a>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-label">Studio</div>
+              <div class="contact-info-static">Lagos, Nigeria — by appointment</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-col">
+          <div class="form-eyebrow">Send a brief</div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <input type="hidden" name="access_key" id="formAccessKey" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New enquiry — Witness Studios">
+            <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+
+            <div class="field">
+              <label for="fieldName">Name</label>
+              <input type="text" id="fieldName" name="name" placeholder="Your name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="fieldEmail">Email</label>
+              <input type="email" id="fieldEmail" name="email" placeholder="you@studio.com" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="fieldMessage">Message</label>
+              <textarea id="fieldMessage" name="message" rows="4" placeholder="Date, location, what you need" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn-gradient form-send" type="submit" id="formSendBtn">Send</button>
+              <span class="form-note" id="formNote" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/witness-logo-white.png" alt="Witness Studios" width="1037" height="300">
+      <div class="footer-loc">Lagos, Nigeria</div>
+    </div>
+    <div class="footer-copy">© 2026 Witness Studios. Film, coverage, rental.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var PAGES = ["home", "projects", "services", "rentals", "contact"];
+  var TITLES = {
+    home: "Witness Studios — Film Production, Event Coverage & Equipment Rental",
+    projects: "Projects — Witness Studios",
+    services: "Services — Witness Studios",
+    rentals: "Rentals — Witness Studios",
+    contact: "Let's talk — Witness Studios"
+  };
+
+  var pageEls = {};
+  PAGES.forEach(function (id) {
+    pageEls[id] = document.getElementById("page-" + id);
+  });
+
+  var navLinks = document.querySelectorAll(".nav-link[data-nav]");
+  var navLinksPanel = document.getElementById("navLinks");
+  var navToggle = document.getElementById("navToggle");
+
+  var currentPage = "home";
+
+  function closeMobileMenu() {
+    navLinksPanel.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.textContent = "Menu";
+  }
+
+  function setPage(page, options) {
+    options = options || {};
+    if (PAGES.indexOf(page) === -1) page = "home";
+    currentPage = page;
+
+    PAGES.forEach(function (id) {
+      var el = pageEls[id];
+      if (!el) return;
+      if (id === page) el.removeAttribute("hidden");
+      else el.setAttribute("hidden", "");
+    });
+
+    navLinks.forEach(function (link) {
+      var isActive = link.dataset.nav === page;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+
+    document.title = TITLES[page] || TITLES.home;
+
+    if (options.updateHash !== false) {
+      var target = "#" + page;
+      if (window.location.hash !== target) {
+        history.pushState(null, "", target);
+      }
+    }
+
+    if (options.scrollTop !== false) {
+      window.scrollTo(0, 0);
+    }
+
+    closeMobileMenu();
+  }
+
+  function pageFromHash() {
+    var hash = window.location.hash.replace("#", "");
+    return PAGES.indexOf(hash) !== -1 ? hash : "home";
+  }
+
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      setPage(link.dataset.nav);
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    var trigger = e.target.closest("[data-goto]");
+    if (!trigger) return;
+    setPage(trigger.dataset.goto);
+  });
+
+  navToggle.addEventListener("click", function () {
+    var isOpen = navLinksPanel.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.textContent = isOpen ? "Close" : "Menu";
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && navLinksPanel.classList.contains("is-open")) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener("popstate", function () {
+    setPage(pageFromHash(), { updateHash: false, scrollTop: false });
+  });
+
+  var filterButtons = document.querySelectorAll(".filter-btn[data-filter]");
+  var projectCards = document.querySelectorAll(".project-card[data-cat]");
+  var filterCount = document.getElementById("filterCount");
+
+  function applyFilter(filter) {
+    var visible = 0;
+    projectCards.forEach(function (card) {
+      var match = filter === "All" || card.dataset.cat === filter;
+      card.style.display = match ? "" : "none";
+      if (match) visible++;
+    });
+    filterCount.textContent = visible + (visible === 1 ? " project" : " projects");
+  }
+
+  filterButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      filterButtons.forEach(function (b) { b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  applyFilter("All");
+
+  var gearButtons = document.querySelectorAll(".gear-quote-btn[data-gear]");
+  var messageField = document.getElementById("fieldMessage");
+
+  gearButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      setPage("contact");
+      var prefill = "Rental enquiry — " + btn.dataset.gear + ": ";
+      messageField.value = prefill;
+      messageField.focus();
+      var len = messageField.value.length;
+      messageField.setSelectionRange(len, len);
+    });
+  });
+
+  // Sends via web3forms.com (a free static-site form relay — no server needed).
+  // To activate: create a free account at https://web3forms.com, grab your
+  // Access Key, and replace the value of #formAccessKey above.
+  var form = document.getElementById("contactForm");
+  var sendBtn = document.getElementById("formSendBtn");
+  var formNote = document.getElementById("formNote");
+  var accessKeyField = document.getElementById("formAccessKey");
+  var PLACEHOLDER_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    formNote.classList.remove("is-error");
+
+    if (!accessKeyField.value || accessKeyField.value === PLACEHOLDER_KEY) {
+      formNote.textContent = "Form isn't wired up yet — email hello@witnessstudios.com directly for now.";
+      formNote.classList.add("is-error");
+      return;
+    }
+
+    var originalLabel = sendBtn.textContent;
+    sendBtn.disabled = true;
+    sendBtn.textContent = "Sending…";
+    formNote.textContent = "";
+
+    var payload = {
+      access_key: accessKeyField.value,
+      subject: form.subject.value,
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          formNote.textContent = "Thanks — we'll reply within 24 hours.";
+          form.reset();
+        } else {
+          throw new Error(data.message || "Send failed");
+        }
+      })
+      .catch(function () {
+        formNote.textContent = "Something went wrong — email hello@witnessstudios.com directly.";
+        formNote.classList.add("is-error");
+      })
+      .finally(function () {
+        sendBtn.disabled = false;
+        sendBtn.textContent = originalLabel;
+      });
+  });
+
+  setPage(pageFromHash(), { updateHash: false, scrollTop: false });
+})();
+</script>
+</body>
+</html>
