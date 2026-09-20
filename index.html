@@ -125,9 +125,8 @@ input:focus-visible, textarea:focus-visible { outline: none; }
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(52% 40% at 8% 14%, rgba(77, 41, 121, 0.55) 0%, rgba(77, 41, 121, 0) 68%),
-    radial-gradient(46% 38% at 92% 46%, rgba(184, 69, 246, 0.32) 0%, rgba(184, 69, 246, 0) 70%),
-    radial-gradient(44% 34% at 26% 88%, rgba(255, 69, 33, 0.22) 0%, rgba(255, 69, 33, 0) 72%);
+    radial-gradient(52% 40% at 8% 14%, rgba(77, 41, 121, 0.22) 0%, rgba(77, 41, 121, 0) 68%),
+    radial-gradient(46% 38% at 92% 46%, rgba(184, 69, 246, 0.1) 0%, rgba(184, 69, 246, 0) 70%);
 }
 
 .site-header {
@@ -200,38 +199,40 @@ input:focus-visible, textarea:focus-visible { outline: none; }
   display: inline-block;
   padding: 16px 30px;
   border-radius: var(--radius);
-  background: var(--gradient-brand);
+  background: transparent;
   color: var(--offwhite);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
-  border: none;
+  border: 1px solid rgba(250, 247, 255, 0.22);
   text-align: center;
 }
-.btn-gradient:hover { filter: brightness(1.14); color: var(--offwhite); }
+.btn-gradient:hover { border-color: var(--orange); color: var(--orange); }
 
 .nav-cta {
   margin-left: 6px;
   padding: 11px 20px;
   font-size: 13px;
+  border-color: rgba(184, 69, 246, 0.55);
 }
+.nav-cta:hover { border-color: var(--orange); }
 
 .btn-light {
   display: inline-block;
   padding: 16px 32px;
   border-radius: var(--radius);
-  background: var(--offwhite);
-  color: var(--purple-deep);
+  background: transparent;
+  color: var(--offwhite);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
-  border: none;
+  border: 1px solid rgba(250, 247, 255, 0.22);
 }
-.btn-light:hover { color: var(--orange); }
+.btn-light:hover { border-color: var(--orange); color: var(--orange); }
 
 .link-arrow {
   display: inline-block;
@@ -330,14 +331,6 @@ input:focus-visible, textarea:focus-visible { outline: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* On phones, the 16:9 video under object-fit:cover has to crop hard left/right
-   to fill a tall narrow screen. Show the full frame instead (letterboxed by
-   the hero's own gradient, not empty bars) — laptop/tablet keep the cover
-   crop, which already reads full-bleed at those wider aspect ratios. */
-@media (max-width: 600px) {
-  .hero-video { object-fit: contain; }
 }
 
 .hero-scrim {
@@ -567,7 +560,12 @@ input:focus-visible, textarea:focus-visible { outline: none; }
   color: var(--text-dim);
 }
 
-.cta-band { background: var(--gradient-band); color: var(--offwhite); }
+.cta-band {
+  background: var(--ink-raised);
+  color: var(--offwhite);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
 .cta-band-inner {
   max-width: var(--container);
   margin: 0 auto;
@@ -587,6 +585,10 @@ input:focus-visible, textarea:focus-visible { outline: none; }
   margin: 0;
   max-width: 18ch;
   text-wrap: balance;
+  background: linear-gradient(92deg, var(--purple-bright) 8%, var(--orange) 72%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .cta-band-actions {
   display: flex;
@@ -596,10 +598,10 @@ input:focus-visible, textarea:focus-visible { outline: none; }
 }
 .cta-band-actions .link-arrow {
   color: var(--offwhite);
-  border-bottom-color: rgba(250, 247, 255, 0.6);
+  border-bottom-color: rgba(250, 247, 255, 0.55);
 }
-.cta-band-actions .link-arrow:hover { border-bottom-color: var(--offwhite); color: var(--offwhite); }
-.cta-band-note { font-size: 15px; color: rgba(250, 247, 255, 0.9); }
+.cta-band-actions .link-arrow:hover { color: var(--orange); border-bottom-color: var(--orange); }
+.cta-band-note { font-size: 15px; color: var(--text-mid); }
 
 .filters-row {
   display: flex;
@@ -762,16 +764,16 @@ input:focus-visible, textarea:focus-visible { outline: none; }
   flex-shrink: 0;
   padding: 12px 22px;
   border-radius: var(--radius);
-  background: var(--offwhite);
-  color: var(--ink-deep);
+  background: transparent;
+  color: var(--offwhite);
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  border: none;
+  border: 1px solid rgba(250, 247, 255, 0.22);
 }
-.gear-quote-btn:hover { background: var(--purple-link); }
+.gear-quote-btn:hover { border-color: var(--orange); color: var(--orange); }
 
 .contact-grid { display: flex; flex-wrap: wrap; gap: clamp(40px, 6vw, 96px); }
 .contact-info, .contact-form-col { flex: 1 1 320px; min-width: 0; }
